@@ -5,9 +5,11 @@
 1. Instalar JAVA JRE 8 (https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
 2. Configurar las __variables de entorno__. Agregar:
 
-* CLASSPATH: C:\Program Files\Java\jdk1.7.0_79\jre
-* JAVA_HOME: C:\Program Files\Java\jdk1.7.0_79
-* PATH: ....;C:\Program Files\Java\jdk1.7.0_79\bin;....
+* CLASSPATH: __C:\Program Files\Java\jdk1.8.X_XX__\jre
+* JAVA_HOME: __C:\Program Files\Java\jdk1.8.X_XX__
+* PATH: ....;__C:\Program Files\Java\jdk1.8.X_XX__\bin;....
+
+NOTA: __C:\Program Files\Java\jdk1.8.X_XX__ debe ser el lugar donde instaló la JRE descargada en el paso 1.
 
 ### Instalar MAVEN
 
