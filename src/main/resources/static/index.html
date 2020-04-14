@@ -1,0 +1,93 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+</head>
+<body>
+<div class="container">
+    <h1>POC. BFA.</h1>
+    <h3>Seleccione un archivo para sellar.</h3>
+    <form method="post" action="" enctype="multipart/form-data" id="myform">
+        <div >
+            <input type="file" id="file" name="file" />
+            <input type="button" class="button" value="Sellar" id="but_upload">
+            <input type="button" class="button" value="Validar" id="but_validar">
+        </div>
+    </form>
+    <h3 id="feedback"></h3>
+</div>
+</body>
+<style>
+/* Container */
+.container{
+  font-family: Arial, Helvetica, sans-serif;
+   margin: 0 auto;
+   border: 0px solid black;
+   width: 50%;
+   height: 250px;
+   border-radius: 3px;
+   background-color: #d2d2ff;
+   text-align: center;
+}
+
+/* Button */
+.button{
+   border: 0px;
+   background-color: deepskyblue;
+   color: white;
+   padding: 5px 15px;
+   margin-left: 10px;
+}
+</style>
+<script>
+$(document).ready(function(){
+	var a = 
+	function (bb, ff) {
+		return function(){
+	        var fd = new FormData();
+	        var files = $('#file')[0].files[0];
+	        fd.append('file', files);
+	        $.ajax({
+	            url: 'http://localhost:8080/'+bb,
+	            type: 'post',
+	            data: fd,
+	            contentType: false,
+	            processData: false,
+	            success: function(response){
+	                if(response != 0){
+	                    $("#feedback").text(ff(response));
+	                }else{
+	                    $("#feedback").text(ff(response));
+	                }
+	            }
+	        });
+	    };
+    }
+    
+    var conv = function(unix_timestamp) {
+		var a = new Date(unix_timestamp * 1000);
+        var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Agt','Sep','Oct','Nov','Dic'];
+		var year = a.getFullYear();
+		var month = months[a.getMonth()];
+		var date = a.getDate();
+		var hour = a.getHours();
+		var min = "0" + a.getMinutes();
+		var sec = "0" + a.getSeconds();
+		var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min.substr(-2) + ':' + sec.substr(-2) ;
+		return time;
+    }
+    
+    $("#but_upload").click( a('sellar', function(response) {return "Sellado OK";} ));
+    $("#but_validar").click (a('validar', function(response) {
+    							var ret;
+    							ret = JSON.parse(response);
+    							if (!ret.stamped) {
+    								return "El archivo NO está sellado.";
+    							}
+    							return "Fecha de sellado: " + conv(ret.stamps[0].blocktimestamp);} ));
+});
+
+</script>
+</html>
