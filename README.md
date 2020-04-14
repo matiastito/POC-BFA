@@ -1,5 +1,7 @@
 # POC BFA
 
+# 1. Instalar JAVA y MAVEN
+
 ### Instalar JAVA 8 (JRE)
 
 1. Instalar JAVA JRE 8 (https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
@@ -22,7 +24,7 @@ NOTA: __C:\Program Files\Java\jdk1.8.X_XX__ debe ser el lugar donde instaló la 
 * PATH: ....;C:\maven\apache-maven-X.X.X\bin;....
 
 
-# 1. Iniciar la POC
+# 2. Iniciar la POC
 ```
 $ git clone https://github.com/mkyong/spring-boot.git
 $ cd pocBFA
