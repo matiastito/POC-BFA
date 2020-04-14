@@ -2,7 +2,7 @@
 
 ### Instalar JAVA 8 (JRE)
 
-1. Instalar JAVA JRE 8 https://www.oracle.com/java/technologies/javase-jre8-downloads.html
+1. Instalar JAVA JRE 8 (https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
 2. Configurar las __variables de entorno__. Agregar:
 
 * CLASSPATH: C:\Program Files\Java\jdk1.7.0_79\jre
@@ -11,9 +11,7 @@
 
 ### Instalar MAVEN
 
-http://maven.apache.org/download.cgi#Installation
-
-1. __DESCARGAR__ el binario en zip o tar.
+1. __DESCARGAR__ el binario en zip o tar (http://maven.apache.org/download.cgi#Installation).
 2. __DESCOMPRIMIR__ el archivo en C:/maven, los archivos de Maven se encontrarán en C:/maven/apache-maven-X.X.X
 3. Configurar las __variables de entorno__. Agregar:
 
